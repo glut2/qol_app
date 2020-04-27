@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mobility: 1
+  self_care: 1
+  usual_activities: 1
+  pain: 1
+  anxiety: 1
+
+two:
+  mobility: 1
+  self_care: 1
+  usual_activities: 1
+  pain: 1
+  anxiety: 1

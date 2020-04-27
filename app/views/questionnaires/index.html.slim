@@ -1,0 +1,30 @@
+h1 過去の問診結果
+
+p.py-3 各項目における数字は、1が最も良い健康状態、5が最も悪い健康状態を表します。
+
+.nav.justify-content-end
+  = link_to 'メイン画面に戻る', root_path, class: 'nav-link'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Questionnaire.human_attribute_name(:id)
+      th= Questionnaire.human_attribute_name(:created_at)
+      th= Questionnaire.human_attribute_name(:mobility)
+      th= Questionnaire.human_attribute_name(:self_care)
+      th= Questionnaire.human_attribute_name(:usual_activities)
+      th= Questionnaire.human_attribute_name(:pain)
+      th= Questionnaire.human_attribute_name(:anxiety)
+      th
+  tbody
+    - @questionnaires.each do |questionnaire|
+      tr
+        td= link_to questionnaire.id, questionnaire_path(questionnaire)
+        td= questionnaire.created_at
+        td= questionnaire.mobility
+        td= questionnaire.self_care
+        td= questionnaire.usual_activities
+        td= questionnaire.pain
+        td= questionnaire.anxiety
+        td= link_to '編集', edit_questionnaire_path(questionnaire), class: 'btn btn-primary mr-3'

@@ -1,24 +1,30 @@
 # README
+* Name
+QolApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Overview
+You can measure health-related quality of life and manage subordinate's Qol by using this app.
 
-Things you may want to cover:
+* Requirement
+If you haven't already, you need to install MySQL.
+```$ brew install mysql  # Using Homebrew on macOS```
 
-* Ruby version
+* Getting started
 
-* System dependencies
+To get started with the app, first clone the repo and cd into the directory:
 
-* Configuration
+```$ git clone https://github.com/glut2/qol_app.git```  
+```$ cd qol_app```
 
-* Database creation
+Then install the needed packages:
 
-* Database initialization
+```$ bundle install```
 
-* How to run the test suite
+Next, migrate the database:
 
-* Services (job queues, cache servers, search engines, etc.)
+```$ rails db:migrate```
 
-* Deployment instructions
+Finally you’ll be ready to seed the database with sample users and run the app in a local server:
 
-* ...
+```$ rails db:create```  
+```$ rails server```
