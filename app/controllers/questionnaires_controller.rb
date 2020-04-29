@@ -39,6 +39,7 @@ class QuestionnairesController < ApplicationController
       redirect_to questionnaires_url, notice: "問診票の回答を削除しました。"
     else
       redirect_to questionnaires_url, alert: "問診票の回答を削除できませんでした。"
+    end
   end
 
   def set_questionnaire
