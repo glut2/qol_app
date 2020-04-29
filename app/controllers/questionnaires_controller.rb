@@ -1,10 +1,13 @@
 class QuestionnairesController < ApplicationController
+
+  before_action :set_questionnaire, only: %i( show edit update destroy)
+
   def index
     @questionnaires = Questionnaire.all
   end
 
   def show
-    @questionnaire = Questionnaire.find(params[:id])
+
   end
 
   def new
@@ -12,25 +15,34 @@ class QuestionnairesController < ApplicationController
   end
 
   def edit
-    @questionnaire = Questionnaire.find(params[:id])
+
   end
 
   def create
     questionnaire = Questionnaire.new(questionnaire_params)
-    questionnaire.save!
-    redirect_to root_url, notice: "問診票に回答しました。"
+    if questionnaire.save
+      redirect_to root_url, notice: "問診票に回答しました。"
+    else
+      redirect_to root_url, alert: "問診票に回答できませんでした。"
+    end
   end
 
   def update
     questionnaire = Questionnaire.find(params[:id])
-    questionnaire.update!(questionnaire_params)
-    redirect_to questionnaires_url, notice: "問診票の回答を更新しました。"
+    if questionnaire.update(questionnaire_params)
+      redirect_to questionnaires_url, notice: "問診票の回答を更新しました。"
+    else
+      redirect_to questionnaires_url, alert: "問診票の回答を更新できませんでした。"
+    end
   end
 
   def destroy
-    questionnaire = Questionnaire.find(params[:id])
     questionnaire.destroy
     redirect_to questionnaires_url, notice: "問診票の回答を削除しました。"
+  end
+
+  def set_questionnaire
+    @questionnaire = Questionnaire.find(params[:id])
   end
 
   private

@@ -9,13 +9,9 @@ p.pb-2 なお、下記項目の3番目の「ふだんの活動」は、仕事、
 .nav.justify-content-end.pb-2
   = link_to '過去の問診結果に戻る', questionnaires_path, class: 'nav-link'
 
-
 = form_with model: @questionnaire, local: true do |f|
-
   .form-group.row.py-1
-
     =f.label :mobility, class: 'col-sm-3 col-form-label'
-
     .col-sm-9
       .form-check
         = f.radio_button :mobility, 1, class: 'form-check-input'
@@ -29,11 +25,8 @@ p.pb-2 なお、下記項目の3番目の「ふだんの活動」は、仕事、
         = f.radio_button :mobility, 5, class: 'form-check-input'
         = f.label :mobility, '歩き回ることができない', class: 'form-check'
 
-
   .form-group.row.py-1
-
     =f.label :self_care, class: 'col-sm-3 col-form-label'
-
     .col-sm-9
       .form-check
         = f.radio_button :self_care, 1, class: 'form-check-input'
@@ -48,9 +41,7 @@ p.pb-2 なお、下記項目の3番目の「ふだんの活動」は、仕事、
         = f.label :self_care, '自分で身体を洗ったり着替えをすることができない', class: 'form-check'
 
   .form-group.row.py-1
-
     =f.label :usual_activities, class: 'col-sm-3 col-form-label'
-
     .col-sm-9
       .form-check
         = f.radio_button :usual_activities, 1, class: 'form-check-input'
@@ -66,7 +57,6 @@ p.pb-2 なお、下記項目の3番目の「ふだんの活動」は、仕事、
 
   .form-group.row.py-1
     =f.label :pain, class: 'col-sm-3 col-form-label'
-
     .col-sm-9
       .form-check
         = f.radio_button :pain, 1, class: 'form-check-input'
@@ -82,7 +72,6 @@ p.pb-2 なお、下記項目の3番目の「ふだんの活動」は、仕事、
 
   .form-group.row.py-1
     =f.label :anxiety, class: 'col-sm-3 col-form-label'
-
     .col-sm-9
       .form-check
         = f.radio_button :anxiety, 1, class: 'form-check-input'
