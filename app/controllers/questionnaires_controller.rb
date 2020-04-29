@@ -7,7 +7,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -15,7 +14,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -37,8 +35,10 @@ class QuestionnairesController < ApplicationController
   end
 
   def destroy
-    questionnaire.destroy
-    redirect_to questionnaires_url, notice: "問診票の回答を削除しました。"
+    if questionnaire.destroy
+      redirect_to questionnaires_url, notice: "問診票の回答を削除しました。"
+    else
+      redirect_to questionnaires_url, alert: "問診票の回答を削除できませんでした。"
   end
 
   def set_questionnaire
