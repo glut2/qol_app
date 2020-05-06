@@ -1,6 +1,6 @@
 class QuestionnairesController < ApplicationController
 
-  before_action :set_questionnaire, only: %i( show edit destroy)
+  before_action :set_questionnaire, only: %i( show edit update destroy )
 
   def index
     @questionnaires = Questionnaire.all
@@ -26,7 +26,6 @@ class QuestionnairesController < ApplicationController
   end
 
   def update
-    questionnaire = Questionnaire.find(params[:id])
     if questionnaire.update(questionnaire_params)
       redirect_to questionnaires_url, notice: "問診票の回答を更新しました。"
     else
@@ -35,7 +34,7 @@ class QuestionnairesController < ApplicationController
   end
 
   def destroy
-    if questionnaire.destroy
+    if @questionnaire.destroy
       redirect_to questionnaires_url, notice: "問診票の回答を削除しました。"
     else
       redirect_to questionnaires_url, alert: "問診票の回答を削除できませんでした。"
