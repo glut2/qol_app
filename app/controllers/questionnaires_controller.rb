@@ -26,7 +26,7 @@ class QuestionnairesController < ApplicationController
   end
 
   def update
-    if questionnaire.update(questionnaire_params)
+    if @questionnaire.update(questionnaire_params)
       redirect_to questionnaires_url, notice: "問診票の回答を更新しました。"
     else
       redirect_to questionnaires_url, alert: "問診票の回答を更新できませんでした。"
