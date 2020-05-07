@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2020_04_21_084909) do
 
   create_table "questionnaires", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "mobility"
-    t.integer "self_care"
-    t.integer "usual_activities"
-    t.integer "pain"
-    t.integer "anxiety"
+    t.integer "mobility", null: false
+    t.integer "self_care", null: false
+    t.integer "usual_activities", null: false
+    t.integer "pain", null: false
+    t.integer "anxiety", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
