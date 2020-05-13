@@ -50,5 +50,4 @@ class QuestionnairesController < ApplicationController
   def questionnaire_params
     params.require(:questionnaire).permit(:mobility, :self_care, :usual_activities, :pain, :anxiety)
   end
-
 end

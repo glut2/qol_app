@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_05_11_094214) do
     t.integer "anxiety", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "qol_score"
+    t.decimal "qol_score", precision: 4, scale: 3
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
