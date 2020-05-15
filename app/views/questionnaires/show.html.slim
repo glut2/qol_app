@@ -25,7 +25,7 @@ table.table.table-hover
       td= @questionnaire.anxiety
     tr
       th= Questionnaire.human_attribute_name(:qol_score)
-      td= @questionnaire.calculate_qol_score
+      td= @questionnaire.qol_score
     tr
       th= Questionnaire.human_attribute_name(:created_at)
       td= l @questionnaire.created_at, format: :long

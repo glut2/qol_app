@@ -27,6 +27,6 @@ table.table.table-hover
         td= questionnaire.usual_activities
         td= questionnaire.pain
         td= questionnaire.anxiety
-        td= questionnaire.calculate_qol_score
+        td= questionnaire.qol_score
         td= link_to '編集', edit_questionnaire_path(questionnaire), class: 'btn btn-primary mr-1'
         td= link_to '削除', questionnaire, method: :delete, data: {confirm: "問診結果を削除します。よろしいですか？"}, class: 'btn btn-danger'
