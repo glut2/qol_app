@@ -16,7 +16,7 @@ table.table.table-hover
       th= Questionnaire.human_attribute_name(:usual_activities)
       th= Questionnaire.human_attribute_name(:pain)
       th= Questionnaire.human_attribute_name(:anxiety)
-      th= Questionnaire.human_attribute_name(:qol_score)
+      th= 'QOL値'
   tbody
     - @questionnaires.each do |questionnaire|
       tr
