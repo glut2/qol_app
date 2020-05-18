@@ -58,3 +58,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 
 gem 'slim-rails', '~> 3.2'
 gem 'html2slim', '~> 0.2.0'
+
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views', '~> 1.0'
