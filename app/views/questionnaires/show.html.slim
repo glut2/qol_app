@@ -24,14 +24,11 @@ table.table.table-hover
       th= Questionnaire.human_attribute_name(:anxiety)
       td= @questionnaire.anxiety
     tr
-      th= 'QOL値'
-      td= @questionnaire.qol_score
-    tr
       th= Questionnaire.human_attribute_name(:created_at)
-      td= l @questionnaire.created_at, format: :long
+      td= @questionnaire.created_at
     tr
       th= Questionnaire.human_attribute_name(:updated_at)
-      td= l @questionnaire.updated_at, format: :long
+      td= @questionnaire.updated_at
 
 = link_to '問診結果を編集する', edit_questionnaire_path, class: 'btn btn-primary mr-3'
 = link_to '問診結果を削除する', @questionnaire, method: :delete, data: {confirm: "問診結果を削除します。よろしいですか？"}, class: 'btn btn-danger'
