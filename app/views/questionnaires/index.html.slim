@@ -16,17 +16,15 @@ table.table.table-hover
       th= Questionnaire.human_attribute_name(:usual_activities)
       th= Questionnaire.human_attribute_name(:pain)
       th= Questionnaire.human_attribute_name(:anxiety)
-      th= Questionnaire.human_attribute_name(:qol_score)
+      th
   tbody
     - @questionnaires.each do |questionnaire|
       tr
         td= link_to questionnaire.id, questionnaire_path(questionnaire)
-        td= l questionnaire.created_at, format: :long
+        td= questionnaire.created_at
         td= questionnaire.mobility
         td= questionnaire.self_care
         td= questionnaire.usual_activities
         td= questionnaire.pain
         td= questionnaire.anxiety
-        td= questionnaire.qol_score
-        td= link_to '編集', edit_questionnaire_path(questionnaire), class: 'btn btn-primary mr-1'
-        td= link_to '削除', questionnaire, method: :delete, data: {confirm: "問診結果を削除します。よろしいですか？"}, class: 'btn btn-danger'
+        td= link_to '編集', edit_questionnaire_path(questionnaire), class: 'btn btn-primary mr-3'
