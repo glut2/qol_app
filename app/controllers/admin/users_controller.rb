@@ -1,5 +1,6 @@
 class Admin::UsersController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_user, only: %i( show edit update destroy )
 
   def index
@@ -49,5 +50,9 @@ class Admin::UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def require_admin
+    redirect_to root_url unless current_user.admin?
   end
 end

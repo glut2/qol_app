@@ -1,9 +1,10 @@
 class QuestionnairesController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_questionnaire, only: %i( show edit update destroy )
 
   def index
-    @questionnaires = Questionnaire.all
+    @questionnaires = current_user.questionnaires.all
   end
 
   def show
@@ -17,7 +18,7 @@ class QuestionnairesController < ApplicationController
   end
 
   def create
-    questionnaire = Questionnaire.new(questionnaire_params)
+    questionnaire = current_user.questionnaires.new(questionnaire_params)
     if questionnaire.save
       redirect_to root_url, notice: "問診票に回答しました。"
     else
@@ -42,7 +43,7 @@ class QuestionnairesController < ApplicationController
   end
 
   def set_questionnaire
-    @questionnaire = Questionnaire.find(params[:id])
+    @questionnaire = current_user.questionnaires.find(params[:id])
   end
 
   private
