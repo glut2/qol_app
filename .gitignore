@@ -30,3 +30,6 @@
 yarn-debug.log*
 .yarn-integrity
 /vendor/bundle
+
+.DS-Store
+/db/seeds.rb
