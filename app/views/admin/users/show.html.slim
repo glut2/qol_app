@@ -17,6 +17,12 @@ table.table.table-hover
       th= User.human_attribute_name(:admin)
       td= @user.admin? ? 'あり' : 'なし'
     tr
+      th= '所属部署'
+      td= @user.department.name
+    tr
+      th= User.human_attribute_name(:manager)
+      td= @user.manager? ? 'あり' : 'なし'
+    tr
       th= User.human_attribute_name(:created_at)
       td= @user.created_at
     tr

@@ -1,0 +1,6 @@
+h1 新たに部署を登録する
+
+.nav.justify-content-end
+  = link_to '一覧', admin_departments_path, class: 'nav-link'
+
+= render partial: 'form', locals: { department: @department }

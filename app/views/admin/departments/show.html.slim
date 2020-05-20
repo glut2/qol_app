@@ -1,0 +1,24 @@
+h1 部署の詳細情報
+
+.nav.justify-content-end
+  = link_to '一覧', admin_departments_path, class: 'nav-link'
+table.table.table-hover
+  tbody
+    tr
+      th= Department.human_attribute_name(:id)
+      td= @department.id
+    tr
+      th= Department.human_attribute_name(:name)
+      td= @department.name
+    tr
+      th= Department.human_attribute_name(:description)
+      td= simple_format(h(@department.description), {}, sanitize: false, wrapper_tag: "div")
+    tr
+      th= Department.human_attribute_name(:created_at)
+      td= @department.created_at
+    tr
+      th= Department.human_attribute_name(:updated_at)
+      td= @department.updated_at
+
+= link_to '編集', edit_admin_department_path, class: 'btn btn-primary mr-3'
+= link_to '削除', [:admin, @department], method: :delete, data: { confirm: "部署「#{@department.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
