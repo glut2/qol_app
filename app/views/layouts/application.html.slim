@@ -9,7 +9,16 @@ html
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
     .app-title.navbar.navbar-expand-md.navbar-light.bg-light
-      .navbar-brand QolApp
+      .navbar-brand QOL管理ツール
+
+      ul.navbar-nav.ml-auto
+        - if current_user
+          - if current_user.admin?
+            li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
+          li.nav-item= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
+        - else
+          li.nav-item= link_to 'ログイン', new_user_session_path, class: 'nav-link'
+
     .container
       - if flash.notice.present?
         .alert.alert-success= flash.notice
