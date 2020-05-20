@@ -23,8 +23,14 @@ ja:
         name: 名前
         email: メールアドレス
         admin: 管理者権限
+        manager: QOL値確認権限
         password: パスワード
         password_confirmation: パスワード（確認）
+        created_at: 登録日時
+        updated_at: 更新日時
+      department:
+        name: 部署名
+        description: 部署の詳細情報
         created_at: 登録日時
         updated_at: 更新日時
   date:

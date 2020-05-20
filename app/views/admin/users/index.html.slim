@@ -9,8 +9,8 @@ table.table.table-hover
       th= User.human_attribute_name(:name)
       th= User.human_attribute_name(:email)
       th= User.human_attribute_name(:admin)
-      th= User.human_attribute_name(:created_at)
-      th= User.human_attribute_name(:updated_at)
+      th= User.human_attribute_name(:manager)
+      th
       th
   tbody
     - @users.each do |user|
@@ -18,8 +18,6 @@ table.table.table-hover
         td= link_to user.name, [:admin, user]
         td= user.email
         td= user.admin? ? 'あり' : 'なし'
-        td= user.created_at
-        td= user.updated_at
-        td
-          = link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
-          = link_to '削除', [:admin, user], method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
+        td= user.manager? ? 'あり' : 'なし'
+        td= link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
+        td= link_to '削除', [:admin, user], method: :delete, data: { confirm: "ユーザー「#{user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

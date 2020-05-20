@@ -1,0 +1,13 @@
+- if department.errors.present?
+  ul#error_explanation
+    - department.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: [:admin, @department], local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control', id: 'department_name'
+  .form-group
+    = f.label :description
+    = f.text_area :description, rows: 4, class: 'form-control', id: 'department_description'
+  = f.submit '部署を登録する', class: 'btn btn-primary'

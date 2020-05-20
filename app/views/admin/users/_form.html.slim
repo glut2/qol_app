@@ -13,7 +13,14 @@
   .form-check
     = f.label :admin, class: 'form-check-label' do
       = f.check_box :admin, class: 'form-check-input'
-      | 管理者権限
+      | このアプリケーションの管理者権限を与える場合はチェックしてください
+  .form-for
+    =f.label :department_id, '所属部署'
+    =f.collection_select :department_id, Department.all, :id, :name, :prompt => true
+  .form-check
+    = f.label :manager, class: 'form-check-label' do
+      = f.check_box :manager, class: 'form-check-input'
+      | 部署全体のQOL値を確認できる権限を与える場合は、チェックしてください
   .form-group
     = f.label :password, 'パスワード'
     = f.password_field :password, class: 'form-control'
