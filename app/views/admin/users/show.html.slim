@@ -1,7 +1,7 @@
 h1 ユーザーの詳細
 
 .nav.justify-content-end
-  = link_to '一覧', admin_users_path, class: 'nav-link'
+  = link_to 'ユーザーの一覧に戻る', admin_users_path, class: 'nav-link'
 table.table.table-hover
   tbody
     tr
@@ -24,10 +24,10 @@ table.table.table-hover
       td= @user.manager? ? 'あり' : 'なし'
     tr
       th= User.human_attribute_name(:created_at)
-      td= @user.created_at
+      td= l @user.created_at, format: :long
     tr
       th= User.human_attribute_name(:updated_at)
-      td= @user.updated_at
+      td= l @user.updated_at, format: :long
 
 = link_to '編集', edit_admin_user_path, class: 'btn btn-primary mr-3'
 = link_to '削除', [:admin, @user], method: :delete, data: { confirm: "ユーザー「#{@user.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

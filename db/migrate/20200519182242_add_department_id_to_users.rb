@@ -1,6 +1,5 @@
 class AddDepartmentIdToUsers < ActiveRecord::Migration[6.0]
   def up
-    execute 'DELETE FROM users;'
     add_reference :users, :department, null: false, index: true
   end
 

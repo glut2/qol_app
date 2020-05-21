@@ -1,4 +1,4 @@
-class QuestionnairesController < ApplicationController
+class Admin::QuestionnairesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_questionnaire, only: %i( show edit update destroy )
@@ -16,7 +16,7 @@ class QuestionnairesController < ApplicationController
 
   def edit
   end
-  
+
   def administrate
     @questionnaires = Questionnaire.all.recent
   end

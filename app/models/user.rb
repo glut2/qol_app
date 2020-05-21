@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :questionnaires
+  has_many :questionnaires, :dependent => :destroy
   belongs_to :department
 end

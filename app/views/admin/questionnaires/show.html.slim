@@ -1,13 +1,16 @@
 h1 問診結果の詳細
 
 .nav.justify-content-end.py-3
-  = link_to '過去の問診結果に戻る', questionnaires_path, class: 'nav-link'
+  = link_to '問診結果の一覧画面に戻る', admin_questionnaires_administrate_path, class: 'nav-link'
 
 table.table.table-hover
   tbody
     tr
       th= Questionnaire.human_attribute_name(:id)
       td= @questionnaire.id
+    tr
+      th= '回答者名'
+      td= @questionnaire.user.name
     tr
       th= Questionnaire.human_attribute_name(:mobility)
       td= @questionnaire.mobility
@@ -25,10 +28,10 @@ table.table.table-hover
       td= @questionnaire.anxiety
     tr
       th= Questionnaire.human_attribute_name(:created_at)
-      td= @questionnaire.created_at
+      td= l @questionnaire.created_at, format: :long
     tr
       th= Questionnaire.human_attribute_name(:updated_at)
-      td= @questionnaire.updated_at
+      td= l @questionnaire.updated_at, format: :long
 
-= link_to '問診結果を編集する', edit_questionnaire_path, class: 'btn btn-primary mr-3'
-= link_to '問診結果を削除する', @questionnaire, method: :delete, data: {confirm: "問診結果を削除します。よろしいですか？"}, class: 'btn btn-danger'
+= link_to '問診結果を編集する', edit_admin_questionnaire_path, class: 'btn btn-primary mr-3'
+= link_to '問診結果を削除する', [:admin, @questionnaire], method: :delete, data: {confirm: "問診結果を削除します。よろしいですか？"}, class: 'btn btn-danger'

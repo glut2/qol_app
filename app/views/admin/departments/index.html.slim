@@ -1,5 +1,6 @@
-h1 部署一覧
+h1 部署の一覧
 
+.py-3
 = link_to '部署の新規登録', new_admin_department_path, class: 'btn btn-primary'
 
 .mb-3
@@ -7,13 +8,11 @@ table.table.table-hover
   thead.thead-default
     tr
       th= Department.human_attribute_name(:name)
-      th= Department.human_attribute_name(:description)
       th
       th
   tbody
     - @departments.each do |department|
       tr
         td= link_to department.name, [:admin, department]
-        td= simple_format(department.description)
         td= link_to '編集', edit_admin_department_path(department), class: 'btn btn-primary mr-3'
         td= link_to '削除', [:admin, department], method: :delete, data: {confirm: "タスク「#{department.name}」を削除します。よろしいですか？"}, class: 'btn btn-danger'

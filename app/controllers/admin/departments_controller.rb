@@ -1,6 +1,7 @@
 class Admin::DepartmentsController < ApplicationController
   
   before_action :authenticate_user!
+  before_action :require_admin
   before_action :set_department, only: %i( show edit update destroy )
 
   def index

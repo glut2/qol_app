@@ -32,4 +32,3 @@ yarn-debug.log*
 /vendor/bundle
 
 .DS_Store
-/db/seeds.rb

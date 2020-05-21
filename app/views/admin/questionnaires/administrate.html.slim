@@ -1,0 +1,23 @@
+h1 問診結果の編集・削除
+
+p.py-3 各項目における数字は、1が最も良い健康状態、5が最も悪い健康状態を表します。
+p 各レコードの右側にある編集・削除ボタンから、問診結果の編集。削除が行えます。
+
+.nav.justify-content-end
+  = link_to 'トップ画面に戻る', root_path, class: 'nav-link'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= '回答者'
+      th= Questionnaire.human_attribute_name(:created_at)
+      th
+      th
+  tbody
+    - @questionnaires.each do |questionnaire|
+      tr
+        td= link_to questionnaire.user.name, admin_questionnaire_path(questionnaire)
+        td= l questionnaire.created_at, format: :long
+        td= link_to '編集', edit_admin_questionnaire_path(questionnaire), class: 'btn btn-primary mr-3'
+        td= link_to '削除', [:admin, questionnaire], method: :delete, data: { confirm: "問診結果を削除します。よろしいですか？" }, class: 'btn btn-danger'

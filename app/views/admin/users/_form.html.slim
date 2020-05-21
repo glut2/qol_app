@@ -10,17 +10,17 @@
   .form-group
     = f.label :email, 'メールアドレス'
     = f.text_field :email, class: 'form-control'
-  .form-check
+  .form-check.py-2
     = f.label :admin, class: 'form-check-label' do
       = f.check_box :admin, class: 'form-check-input'
-      | このアプリケーションの管理者権限を与える場合はチェックしてください
-  .form-for
-    =f.label :department_id, '所属部署'
-    =f.collection_select :department_id, Department.all, :id, :name, :prompt => true
-  .form-check
+      | このアプリケーションの管理者権限を与える場合は、チェックを入れてください
+  .form-group.py-2
+    =f.label :department_id, '所属している部署'
+    =f.collection_select :department_id, Department.all, :id, :name, :prompt => true, class: 'form-control-lg'
+  .form-check.py-2
     = f.label :manager, class: 'form-check-label' do
       = f.check_box :manager, class: 'form-check-input'
-      | 部署全体のQOL値を確認できる権限を与える場合は、チェックしてください
+      | 部署全体のQOL値を確認できる権限を与える場合は、チェックを入れてください
   .form-group
     = f.label :password, 'パスワード'
     = f.password_field :password, class: 'form-control'

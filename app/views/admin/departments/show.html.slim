@@ -1,7 +1,7 @@
 h1 部署の詳細情報
 
 .nav.justify-content-end
-  = link_to '一覧', admin_departments_path, class: 'nav-link'
+  = link_to '部署の一覧に戻る', admin_departments_path, class: 'nav-link'
 table.table.table-hover
   tbody
     tr
@@ -15,10 +15,10 @@ table.table.table-hover
       td= simple_format(h(@department.description), {}, sanitize: false, wrapper_tag: "div")
     tr
       th= Department.human_attribute_name(:created_at)
-      td= @department.created_at
+      td= l @department.created_at, format: :long
     tr
       th= Department.human_attribute_name(:updated_at)
-      td= @department.updated_at
+      td= l @department.updated_at, format: :long
 
 = link_to '編集', edit_admin_department_path, class: 'btn btn-primary mr-3'
 = link_to '削除', [:admin, @department], method: :delete, data: { confirm: "部署「#{@department.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'

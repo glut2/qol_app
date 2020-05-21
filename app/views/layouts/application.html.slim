@@ -14,9 +14,12 @@ html
       ul.navbar-nav.ml-auto
         - if current_user
           li.nav-item= link_to 'トップ画面', root_path, class: 'nav-link'
+          - if current_user.manager?
+            li.nav-item= link_to '部署のメンバーの問診結果', manager_questionnaires_manage_path, class: 'nav-link'
           - if current_user.admin?
-            li.nav-item= link_to 'ユーザー一覧', admin_users_path, class: 'nav-link'
-            li.nav-item= link_to '部署一覧', admin_departments_path, class: 'nav-link'
+            li.nav-item= link_to '問診結果の編集・削除', admin_questionnaires_administrate_path, class: 'nav-link'
+            li.nav-item= link_to 'ユーザーの一覧・編集', admin_users_path, class: 'nav-link'
+            li.nav-item= link_to '部署の一覧・編集', admin_departments_path, class: 'nav-link'
           li.nav-item= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link'
         - else
           li.nav-item= link_to 'ログイン', new_user_session_path, class: 'nav-link'
